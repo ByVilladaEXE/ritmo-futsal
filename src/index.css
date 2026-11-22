@@ -1,0 +1,34 @@
+@import "tailwindcss";
+:root{--bg:#070a14;--fg:#f4f6ff;--mut:#8b93b0;--card:rgba(255,255,255,.06);--line:rgba(255,255,255,.12);--sheet:#10152a}
+.sun{--bg:#fff;--fg:#000;--mut:#222;--card:#fff;--line:#000;--sheet:#fff}
+html,body,#root{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Plus Jakarta Sans',system-ui,sans-serif;overscroll-behavior:none;-webkit-tap-highlight-color:transparent;overflow-x:hidden;touch-action:manipulation;user-select:none}
+.num{font-family:'Chakra Petch','Barlow Condensed',system-ui,sans-serif;font-variant-numeric:tabular-nums;font-weight:700}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(10px)}
+.sun .atm{display:none}
+input{font:inherit;color:inherit}
+@keyframes ring{from{stroke-dashoffset:0}to{stroke-dashoffset:1}}
+
+.dice{width:150px;height:150px;transform-style:preserve-3d;perspective:800px}
+.dice-face{position:absolute;inset:0;display:grid;place-items:center;border-radius:28px;border:2px solid rgba(103,232,249,.8);background:linear-gradient(145deg,#172554,#070a14);box-shadow:0 18px 50px rgba(34,211,238,.22),inset 0 0 30px rgba(34,211,238,.12)}
+.dice-face span{font-family:'Chakra Petch',sans-serif;font-size:36px;font-weight:700;color:#67e8f9;text-shadow:0 0 22px #22d3ee}
+.secret-card{perspective:1000px;border:0;background:transparent}
+.secret-card{transform:rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform .12s ease-out}
+.secret-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d}
+.secret-front,.secret-back{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border-radius:18px;border:1px solid var(--line);backface-visibility:hidden}
+.secret-front{background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.03));box-shadow:inset 0 0 40px rgba(255,255,255,.05)}
+.secret-back{transform:rotateY(180deg);color:white;text-align:center;padding:10px}
+.secret-back b{font-family:'Chakra Petch',sans-serif;font-size:15px}
+.secret-back small{font-size:10px;line-height:1.25}
+
+nav button{position:relative;overflow:hidden}
+nav button:active{animation:squish .18s ease-out}
+@keyframes squish{50%{transform:scale(.91,.96)}}
+.holo{background-image:linear-gradient(125deg,transparent 20%,rgba(255,255,255,.38) 42%,rgba(103,232,249,.32) 48%,transparent 62%)}
+.holo{background-size:240% 240%;animation:holoShift 4s linear infinite}
+@keyframes holoShift{to{background-position:240% 240%}}
+.card,button,input,textarea{transition:border-color .18s ease,box-shadow .18s ease,background-color .18s ease}
+button:active{transform-origin:center}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
